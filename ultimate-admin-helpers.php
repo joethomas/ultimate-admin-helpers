@@ -1,9 +1,9 @@
 <?php
 /*
 	Plugin Name: Ultimate Admin Helpers
-	Description: This plugin adds helpers for the WordPress Admin.
+	Description: This plugin adds some very useful helpers for the WordPress Admin area.
 	Plugin URI: https://github.com/joethomas/ultimate-admin-helpers
-	Version: 1.2.0
+	Version: 1.2.1
 	Author: Joe Thomas
 	Author URI: http://joethomas.co
 	License: GNU General Public License v3.0
@@ -21,6 +21,7 @@ defined( 'ABSPATH' ) or exit;
 
 /**
  * Define the constants for use within the plugin
+ * @since 1.0.0
  */
 
 // Plugin
@@ -53,7 +54,9 @@ define( 'JOEUADMINHELPERS_DIR_URI', untrailingslashit( plugin_dir_url(__FILE__) 
  * @since 1.0.0
  */
 function joeuadminhelpers_remove_admin_bar_items() {
+
 	global $wp_admin_bar;
+
 	$wp_admin_bar->remove_menu( 'wp-logo' );              // WordPress logo
 	//$wp_admin_bar->remove_menu( 'about' );              // About WordPress link
 	//$wp_admin_bar->remove_menu( 'wporg' );              // WordPress.org link
@@ -69,6 +72,7 @@ function joeuadminhelpers_remove_admin_bar_items() {
 	$wp_admin_bar->remove_menu( 'analytify' );           // Analytify
 	$wp_admin_bar->remove_menu( 'wpseo-menu' );           // Yoast SEO
 	$wp_admin_bar->remove_node( 'updraft_admin_node' );   // UpdraftPlus
+
 }
 add_action( 'wp_before_admin_bar_render', 'joeuadminhelpers_remove_admin_bar_items', 999 );
 
@@ -363,7 +367,9 @@ add_filter( 'wp_terms_checklist_args', 'joeuadminhelpers_maintain_category_hiera
 ==============================================================================*/
 
 /** Prevent TinyMCE from removing empty tags
+ *
  * @link http://www.bashbang.com/geek/div-tag-disappears-in-tinymce/
+ * @since 1.0.0
  */
 function joeuadminhelpers_mce_options_save_empty_tags( $initArray ) {
 	$initArray['extended_valid_elements'] .= 'div[*],i[*],p[*],span[*],br[*]';
@@ -377,6 +383,8 @@ add_filter( 'tiny_mce_before_init', 'joeuadminhelpers_mce_options_save_empty_tag
 
 /**
  * Load text domain for plugin translations
+ *
+ * @since 1.2.0
  */
 function joeuadminhelpers_load_textdomain() {
 	load_plugin_textdomain( 'ultimate-admin-helpers', FALSE, JOEUADMINHELPERS_BASENAME . '/languages/' );
