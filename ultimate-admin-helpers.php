@@ -3,7 +3,7 @@
 	Plugin Name: Ultimate Admin Helpers
 	Description: This plugin adds some very useful helpers for the WordPress Admin area.
 	Plugin URI: https://github.com/joethomas/ultimate-admin-helpers
-	Version: 1.2.2
+	Version: 1.2.3
 	Author: Joe Thomas
 	Author URI: https://github.com/joethomas
 	License: GNU General Public License v3.0
@@ -25,23 +25,23 @@ defined( 'ABSPATH' ) or exit;
  */
 
 // Plugin
-function joeuadminhelpers_get_plugin_data_version() {
+function joe_uah_get_plugin_data_version() {
 	$plugin = get_plugin_data( __FILE__, false, false );
 
-	define( 'JOEUADMINHELPERS_VER', $plugin['Version'] );
-	define( 'JOEUADMINHELPERS_PREFIX', $plugin['TextDomain'] );
-	define( 'JOEUADMINHELPERS_NAME', $plugin['Name'] );
+	define( 'JOE_UAH_VER', $plugin['Version'] );
+	define( 'JOE_UAH_TEXTDOMAIN', $plugin['TextDomain'] );
+	define( 'JOE_UAH_NAME', $plugin['Name'] );
 }
-add_action( 'init', 'joeuadminhelpers_get_plugin_data_version' );
+add_action( 'init', 'joe_uah_get_plugin_data_version' );
 
 // Plugin basename
-define( 'JOEUADMINHELPERS_BASENAME', plugin_basename(__DIR__) );
-define( 'JOEUADMINHELPERS_BASENAME_FILE', plugin_basename(__FILE__) );
-define( 'JOEUADMINHELPERS_BASENAME_FILENAME', basename(__FILE__) );
+define( 'JOE_UAH_BASENAME', plugin_basename(__DIR__) );
+define( 'JOE_UAH_BASENAME_FILE', plugin_basename(__FILE__) );
+define( 'JOE_UAH_BASENAME_FILENAME', basename(__FILE__) );
 
 // Plugin paths
-define( 'JOEUADMINHELPERS_DIR', untrailingslashit( plugin_dir_path(__FILE__) ) );
-define( 'JOEUADMINHELPERS_DIR_URI', untrailingslashit( plugin_dir_url(__FILE__) ) );
+define( 'JOE_UAH_DIR', untrailingslashit( plugin_dir_path(__FILE__) ) );
+define( 'JOE_UAH_DIR_URI', untrailingslashit( plugin_dir_url(__FILE__) ) );
 
 
 /* Admin Bar
@@ -53,7 +53,7 @@ define( 'JOEUADMINHELPERS_DIR_URI', untrailingslashit( plugin_dir_url(__FILE__) 
  * @link http://www.paulund.co.uk/how-to-remove-links-from-wordpress-admin-bar/
  * @since 1.0.0
  */
-function joeuadminhelpers_remove_admin_bar_items() {
+function joe_uah_remove_admin_bar_items() {
 
 	global $wp_admin_bar;
 
@@ -69,19 +69,19 @@ function joeuadminhelpers_remove_admin_bar_items() {
 	//$wp_admin_bar->remove_menu( 'comments' );           // Comments link
 	//$wp_admin_bar->remove_menu( 'new-content' );        // + New [Content] link
 	//$wp_admin_bar->remove_menu( 'my-account' );         // User details tab
-	$wp_admin_bar->remove_menu( 'analytify' );           // Analytify
+	$wp_admin_bar->remove_menu( 'analytify' );            // Analytify
 	$wp_admin_bar->remove_menu( 'wpseo-menu' );           // Yoast SEO
 	$wp_admin_bar->remove_node( 'updraft_admin_node' );   // UpdraftPlus
 
 }
-add_action( 'wp_before_admin_bar_render', 'joeuadminhelpers_remove_admin_bar_items', 999 );
+add_action( 'wp_before_admin_bar_render', 'joe_uah_remove_admin_bar_items', 999 );
 
 /**
  * Change "Howdy" message
  *
  * @since 1.0.0
  */
-function joeuadminhelpers_remove_howdy( $translated, $text, $domain ) {
+function joe_uah_remove_howdy( $translated, $text, $domain ) {
 
     if ( ! is_admin() || 'default' != $domain )
         return $translated;
@@ -92,7 +92,7 @@ function joeuadminhelpers_remove_howdy( $translated, $text, $domain ) {
     return $translated;
 
 }
-add_filter( 'gettext', 'joeuadminhelpers_remove_howdy', 10, 3 );
+add_filter( 'gettext', 'joe_uah_remove_howdy', 10, 3 );
 
 
 /* Admin Menu
@@ -107,7 +107,7 @@ add_filter( 'gettext', 'joeuadminhelpers_remove_howdy', 10, 3 );
  */
 
 // Set the admin menu order.
-function joeuadminhelpers_custom_wp_admin_menu_order( $menu_ord ) {
+function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 
 	if ( ! $menu_ord ) return true;
 
@@ -163,8 +163,8 @@ function joeuadminhelpers_custom_wp_admin_menu_order( $menu_ord ) {
 	);
 
 }
-add_filter( 'custom_menu_order', 'joeuadminhelpers_custom_wp_admin_menu_order' );
-add_filter( 'menu_order', 'joeuadminhelpers_custom_wp_admin_menu_order' );
+add_filter( 'custom_menu_order', 'joe_uah_custom_wp_admin_menu_order' );
+add_filter( 'menu_order', 'joe_uah_custom_wp_admin_menu_order' );
 
 
 /* Dashboard Widgets
@@ -177,7 +177,7 @@ add_filter( 'menu_order', 'joeuadminhelpers_custom_wp_admin_menu_order' );
  */
 
 // Admin Menu Slugs dashboard widget output
-function joeuadminhelpers_wpadmin_menu_slugs_dashboard_widget( $post, $callback_args ) {
+function joe_uah_wpadmin_menu_slugs_dashboard_widget( $post, $callback_args ) {
 
 	global $menu;
 
@@ -211,7 +211,7 @@ function joeuadminhelpers_wpadmin_menu_slugs_dashboard_widget( $post, $callback_
 }
 
 // Available Shortcodes dashboard widget output
-function joeuadminhelpers_available_shortcodes_dashboard_widget( $post, $callback_args ) {
+function joe_uah_available_shortcodes_dashboard_widget( $post, $callback_args ) {
 
 	global $shortcode_tags;
 
@@ -280,7 +280,7 @@ function joeuadminhelpers_available_shortcodes_dashboard_widget( $post, $callbac
 }
 
 // Register dashboard widgets
-function joeuadminhelpers_add_dashboard_widgets() {
+function joe_uah_add_dashboard_widgets() {
 
 	global $menu;
 	global $shortcode_tags;
@@ -289,20 +289,20 @@ function joeuadminhelpers_add_dashboard_widgets() {
 
 	// Admin Menu Slugs
 	wp_add_dashboard_widget(
-		'joeuadminhelpers_menu_slugs',
+		'uah-menu-slugs',
 		__( 'Admin Menu Slugs', 'ultimate-admin-helpers' ) . '<span style="margin-left: .5em; padding: .25em .4em .3em; background: ' . $color_blue . '; border-radius: 1px;  color: #fff; font-size: .825em;">' . count( $menu ) . '</span>',
-		'joeuadminhelpers_wpadmin_menu_slugs_dashboard_widget'
+		'joe_uah_wpadmin_menu_slugs_dashboard_widget'
 	);
 
 	// Available Shortcodes
 	wp_add_dashboard_widget(
-		'joeuadminhelpers_available_shortcodes',
+		'uah-available-shortcodes',
 		__( 'Available Shortcodes', 'ultimate-admin-helpers' ) . '<span style="margin-left: .5em; padding: .25em .4em .3em; background: ' . $color_green . '; border-radius: 1px;  color: #fff; font-size: .825em;">' . count( $shortcode_tags ) . '</span>',
-		'joeuadminhelpers_available_shortcodes_dashboard_widget'
+		'joe_uah_available_shortcodes_dashboard_widget'
 	);
 
 }
-add_action( 'wp_dashboard_setup', 'joeuadminhelpers_add_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'joe_uah_add_dashboard_widgets' );
 
 
 /* Widgets
@@ -321,26 +321,26 @@ add_filter( 'widget_text', 'do_shortcode' );
  *
  * @since 1.0.0
  */
-function joeuadminhelpers_do_not_display_widget_title( $widget_title ) {
+function joe_uah_do_not_display_widget_title( $widget_title ) {
 	if ( substr ( $widget_title, 0, 1 ) == '!' )
 		return;
 	else
 		return ( $widget_title );
 }
-add_filter( 'widget_title', 'joeuadminhelpers_do_not_display_widget_title' );
+add_filter( 'widget_title', 'joe_uah_do_not_display_widget_title' );
 
 /**
  * Allow HTML tags in widget title.
  *
  * @since 1.0.0
  */
-function joeuadminhelpers_html_widget_title( $title) {
+function joe_uah_html_widget_title( $title) {
 	$title = ( str_replace( '|:', '<', $title ) );
 	$title = ( str_replace( ':|', '>', $title ) );
 
 	return $title;
 }
-add_filter( 'widget_title', 'joeuadminhelpers_html_widget_title' );
+add_filter( 'widget_title', 'joe_uah_html_widget_title' );
 
 
 /* Post Categories
@@ -354,13 +354,13 @@ add_filter( 'widget_title', 'joeuadminhelpers_html_widget_title' );
  *
  * @since 1.0.0
  */
-function joeuadminhelpers_maintain_category_hierarchy( $args, $post_id ) {
+function joe_uah_maintain_category_hierarchy( $args, $post_id ) {
 	if ( isset( $args['taxonomy'] ) )
 		$args['checked_ontop'] = false;
 
 	return $args;
 }
-add_filter( 'wp_terms_checklist_args', 'joeuadminhelpers_maintain_category_hierarchy', 10, 2);
+add_filter( 'wp_terms_checklist_args', 'joe_uah_maintain_category_hierarchy', 10, 2 );
 
 
 /* Post/Page Editor
@@ -371,11 +371,11 @@ add_filter( 'wp_terms_checklist_args', 'joeuadminhelpers_maintain_category_hiera
  * @link http://www.bashbang.com/geek/div-tag-disappears-in-tinymce/
  * @since 1.0.0
  */
-function joeuadminhelpers_mce_options_save_empty_tags( $initArray ) {
+function joe_uah_mce_options_save_empty_tags( $initArray ) {
 	$initArray['extended_valid_elements'] .= 'div[*],i[*],p[*],span[*],br[*]';
 	return $initArray;
 }
-add_filter( 'tiny_mce_before_init', 'joeuadminhelpers_mce_options_save_empty_tags' );
+add_filter( 'tiny_mce_before_init', 'joe_uah_mce_options_save_empty_tags' );
 
 
 /* Languages
@@ -386,7 +386,7 @@ add_filter( 'tiny_mce_before_init', 'joeuadminhelpers_mce_options_save_empty_tag
  *
  * @since 1.2.0
  */
-function joeuadminhelpers_load_textdomain() {
-	load_plugin_textdomain( 'ultimate-admin-helpers', FALSE, JOEUADMINHELPERS_BASENAME . '/languages/' );
+function joe_uah_load_textdomain() {
+	load_plugin_textdomain( JOE_UAH_TEXTDOMAIN, false, JOE_UAH_BASENAME . '/languages/' );
 }
-add_action( 'plugins_loaded', 'joeuadminhelpers_load_textdomain' );
+add_action( 'plugins_loaded', 'joe_uah_load_textdomain' );
