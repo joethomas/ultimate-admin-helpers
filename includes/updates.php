@@ -4,7 +4,7 @@
  *
  * @since 1.0.0
  */
-function joe_uah_do_not_update_plugin_wp( $r, $url ) {
+function joe_uah_do_not_update_plugin_wp_98507215( $r, $url ) {
 
 	if ( 0 !== strpos( $url, 'http://api.wordpress.org/plugins/update-check' ) ) {
 
@@ -14,12 +14,12 @@ function joe_uah_do_not_update_plugin_wp( $r, $url ) {
 
 	$plugins = unserialize( $r['body']['plugins'] );
 
-	unset( $plugins->plugins[plugin_basename(__FILE__)] );
-	unset( $plugins->active[array_search( plugin_basename(__FILE__), $plugins->active )] );
+	unset( $plugins->plugins[plugin_basename( __FILE__ )] );
+	unset( $plugins->active[array_search( plugin_basename( __FILE__ ), $plugins->active )] );
 
 	$r['body']['plugins'] = serialize( $plugins );
 
 	return $r;
 
 }
-add_filter( 'http_request_args', 'joe_uah_do_not_update_plugin_wp', 5, 2 );
+add_filter( 'http_request_args', 'joe_uah_do_not_update_plugin_wp_98507215', 5, 2 );
