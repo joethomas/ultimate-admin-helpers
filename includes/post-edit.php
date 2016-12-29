@@ -14,3 +14,18 @@ function joe_uah_maintain_category_hierarchy( $args, $post_id ) {
 	return $args;
 }
 add_filter( 'wp_terms_checklist_args', 'joe_uah_maintain_category_hierarchy', 10, 2 );
+
+/** Prevent TinyMCE from removing empty tags
+ * @link http://www.bashbang.com/geek/div-tag-disappears-in-tinymce/
+ */
+function joe_uap_mce_options_save_empty_tags( $initArray ) {
+
+	$opts = 'div[*],i[*],p[*],span[*],br[*]';
+
+	$initArray['valid_elements'] = $opts;
+	$initArray['extended_valid_elements'] = $opts;
+
+	return $initArray;
+
+}
+add_filter( 'tiny_mce_before_init', 'joe_uap_mce_options_save_empty_tags' );
