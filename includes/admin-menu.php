@@ -14,11 +14,12 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 
     return array(
 		'index.php', // Dashboard
-		'uncode-menu', // Uncode (theme)
+		'avia', // Enfold (theme)
 		'genesis', // Genesis (theme)
 		'wpex-panel', // Total (theme)
-		'avia', // Enfold (theme)
+		'uncode-menu', // Uncode (theme)
 		'envato-wordpress-toolkit', // Envato Toolkit
+		'envato-market', // Envato Market
 		'woocommerce', // WooCommerce
 		'edit.php?post_type=product', // WooCommerce Products
 		'edit.php?post_type=page', // Pages
@@ -59,8 +60,6 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'mb_email_configuration', // Mail Bank
 		'smtp_mail', // WP Mail Bank
 		'wp-help-documents', // WP Help
-		'envato-market', // Envato Market
-		'wppusher', // WP Pusher
 	);
 
 }
