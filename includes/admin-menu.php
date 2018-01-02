@@ -23,6 +23,7 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'woocommerce', // WooCommerce
 		'edit.php?post_type=product', // WooCommerce Products
 		'edit.php?post_type=page', // Pages
+		'nestedpages', // Pages if using the Nested Pages plugin
 		'edit.php', // Posts
 		'edit-comments.php', // Comments
 		'edit.php?post_type=lesson', // Lessons
