@@ -27,6 +27,7 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'edit.php', // Posts
 		'edit-comments.php', // Comments
 		'edit.php?post_type=lesson', // Lessons
+		'edit.php?post_type=influencer', // Influencers
 		'edit.php?post_type=deal', // Deals
 		'edit.php?post_type=portfolio', // Portfolio
 		'separator1', // First separator
