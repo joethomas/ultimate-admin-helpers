@@ -14,54 +14,54 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 
     return array(
 		'index.php', // Dashboard
+		'duplicator', // Duplicator (plugin)
+		'envato-wordpress-toolkit', // Envato Toolkit (plugin)
+		'envato-market', // Envato Market (Plugin)
+		'options-general.php?page=github-updater', // Github Updater (plugin)
+		'uncode-menu', // Uncode (theme)
 		'avia', // Enfold (theme)
 		'genesis', // Genesis (theme)
 		'wpex-panel', // Total (theme)
-		'uncode-menu', // Uncode (theme)
-		'envato-wordpress-toolkit', // Envato Toolkit
-		'envato-market', // Envato Market
-		'woocommerce', // WooCommerce
-		'edit.php?post_type=product', // WooCommerce Products
+		'upload.php', // Media
+		'wpshopify', // WP Shopify (plugin)
+		'woocommerce', // WooCommerce (plugin)
+		'edit.php?post_type=product', // WooCommerce Products (plugin)
 		'edit.php?post_type=page', // Pages
-		'nestedpages', // Pages if using the Nested Pages plugin
+		'nestedpages', // Pages (if using the Nested Pages plugin)
 		'edit.php', // Posts
 		'edit-comments.php', // Comments
-		'edit.php?post_type=lesson', // Lessons
-		'edit.php?post_type=influencer', // Influencers
-		'edit.php?post_type=deal', // Deals
-		'edit.php?post_type=portfolio', // Portfolio
+		'edit.php?post_type=lesson', // Lessons (plugin)
+		'edit.php?post_type=influencer', // Influencers (plugin)
+		'edit.php?post_type=deal', // Deals (plugin)
+		'edit.php?post_type=portfolio', // Portfolio (part of Uncode theme) OR (plugin)
 		'separator1', // First separator
-		'edit.php?post_type=uncodeblock', // Uncode Content Block
-		'edit.php?post_type=content_block', // Custom Post Widget (Plugin)
-		'edit.php?post_type=acf', // Advanced Custom Fields
-		'upload.php', // Media
-		'gf_edit_forms', // Gravity Forms
-		'wpcf7', // Contact Form 7
-		'edit.php?post_type=testimonials', // Testimonials
-		'edit.php?post_type=popup', // Popup Maker
-		'redirect-updates', // Quick Page/Post Redirect Plugin
-		'link-manager.php', // Links
-		'wpseo_dashboard', // Yoast SEO
-		'gadash_settings', // Google Analytics Dashboard for WP
-		'gawd_analytics', // Google Analytics WD
-		'yst_ga_dashboard', // Google Analytics by MonsterInsights
-		'analytify-dashboard', // Analytify
-		'separator2', // Second separator
+		'edit.php?post_type=uncodeblock', // Uncode Content Block (part of Uncode theme)
+		'edit.php?post_type=content_block', // Custom Post Widget (plugin)
+		'edit.php?post_type=acf', // Advanced Custom Fields (plugin)
+		'gf_edit_forms', // Gravity Forms (plugin)
+		'wpcf7', // Contact Form 7 (plugin)
+		'edit.php?post_type=testimonials', // Testimonials (plugin)
+		'edit.php?post_type=popup', // Popup Maker (plugin)
 		'themes.php', // Appearance
 		'plugins.php', // Plugins
 		'users.php', // Users
 		'tools.php', // Tools
 		'options-general.php', // Settings
+		'separator2', // Second separator
+		'vc-general', // Visual Composer (plugin)
+		'revslider', // Slider Revolution (plugin)
+		'layerslider', // LayerSlider (plugin)
+		'metaslider', // Meta Slider (plugin)
+		'wpseo_dashboard', // Yoast SEO (plugin)
+		'redirect-updates', // Quick Page/Post Redirect Plugin (plugin)
+		'wpfastestcacheoptions', // WP Fastest Cache (plugin)
+		'gadash_settings', // Google Analytics Dashboard for WP (plugin)
+		'gawd_analytics', // Google Analytics WD (plugin)
+		'yst_ga_dashboard', // Google Analytics by MonsterInsights (plugin)
+		'analytify-dashboard', // Analytify (plugin)
 		'separator-last', // Last separator
-		'vc-general', // Visual Composer
-		'revslider', // Slider Revolution
-		'layerslider', // LayerSlider
-		'metaslider', // Meta Slider
-		'sucuriscan', // Sucuri Security
-		'Wordfence', // Wordfence
-		'mb_email_configuration', // Mail Bank
-		'smtp_mail', // WP Mail Bank
-		'wp-help-documents', // WP Help
+		'sucuriscan', // Sucuri Security (plugin)
+		'Wordfence', // Wordfence (plugin)
 	);
 
 }
