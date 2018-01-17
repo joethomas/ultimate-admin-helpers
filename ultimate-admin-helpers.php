@@ -3,7 +3,7 @@
 	Plugin Name: Ultimate Admin Helpers
 	Description: This plugin adds some very useful helpers for the WordPress Admin area.
 	Plugin URI: https://github.com/joethomas/ultimate-admin-helpers
-	Version: 1.3.8
+	Version: 1.3.9
 	Author: Joe Thomas
 	Author URI: https://github.com/joethomas
 	License: GNU General Public License v3.0
@@ -37,12 +37,25 @@ add_action( 'init', 'joe_uah_get_plugin_data_version' );
 define( 'JOE_UAH_PREFIX', 'ultimate-admin-helpers' );
 
 
+/* Plugins Check
+==============================================================================*/
+
+function joe_uah_plugins_check() {
+
+	// Set constants for active third party plugins
+	define( 'JOE_UAH_MINIORANGE_2_FACTOR', class_exists( 'Miniorange_Authentication' ) );
+
+}
+add_action( 'plugins_loaded', 'joe_uah_plugins_check' );
+
+
 /* Bootstrap
 ==============================================================================*/
 
-require_once( 'includes/admin-bar.php' ); // controls admin bar
-require_once( 'includes/admin-menu.php' ); // controls admin menu
-require_once( 'includes/dashboard-widgets.php' ); // controls dashboard widgets
+require_once( 'includes/admin-bar.php' ); // controls WP Admin bar
+require_once( 'includes/admin-menu.php' ); // controls WP Admin menu
+require_once( 'includes/admin-styles.php' ); // controls WP Admin styles
+require_once( 'includes/dashboard-widgets.php' ); // controls Dashboard widgets
 require_once( 'includes/post-edit.php' ); // controls Post Edit screen
 require_once( 'includes/updates.php' ); // controls plugin updates
 require_once( 'includes/widgets.php' ); // controls widgets

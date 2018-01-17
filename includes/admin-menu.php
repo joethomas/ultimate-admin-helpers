@@ -1,7 +1,7 @@
 <?php
 /**
  * Rearrange the WordPress Admin menu
- * Use Admin Menu Slugs dashboard widget to find menu slugs for reordering.
+ * Use the Admin Menu Slugs dashboard widget to find menu slugs to reorder.
  *
  * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/menu_order
  * @since 1.1.0
@@ -15,14 +15,11 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
     return array(
 		'index.php', // Dashboard
 		'duplicator', // Duplicator (plugin)
-		'envato-wordpress-toolkit', // Envato Toolkit (plugin)
-		'envato-market', // Envato Market (Plugin)
 		'options-general.php?page=github-updater', // Github Updater (plugin)
 		'uncode-menu', // Uncode (theme)
 		'avia', // Enfold (theme)
 		'genesis', // Genesis (theme)
 		'wpex-panel', // Total (theme)
-		'upload.php', // Media
 		'wpshopify', // WP Shopify (plugin)
 		'woocommerce', // WooCommerce (plugin)
 		'edit.php?post_type=product', // WooCommerce Products (plugin)
@@ -34,21 +31,22 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'edit.php?post_type=influencer', // Influencers (plugin)
 		'edit.php?post_type=deal', // Deals (plugin)
 		'edit.php?post_type=portfolio', // Portfolio (part of Uncode theme) OR (plugin)
-		'separator1', // First separator
 		'edit.php?post_type=uncodeblock', // Uncode Content Block (part of Uncode theme)
 		'edit.php?post_type=content_block', // Custom Post Widget (plugin)
-		'edit.php?post_type=acf', // Advanced Custom Fields (plugin)
 		'gf_edit_forms', // Gravity Forms (plugin)
 		'wpcf7', // Contact Form 7 (plugin)
 		'edit.php?post_type=testimonials', // Testimonials (plugin)
 		'edit.php?post_type=popup', // Popup Maker (plugin)
+		'upload.php', // Media
+		'separator1', // Separator (1st)
 		'themes.php', // Appearance
 		'plugins.php', // Plugins
 		'users.php', // Users
-		'tools.php', // Tools
 		'options-general.php', // Settings
-		'separator2', // Second separator
-		'vc-general', // Visual Composer (plugin)
+		'tools.php', // Tools
+		'separator2', // Separator (2nd)
+		'edit.php?post_type=acf', // Advanced Custom Fields (plugin)
+		'vc-general', // WPBakery Page Builder (plugin)
 		'revslider', // Slider Revolution (plugin)
 		'layerslider', // LayerSlider (plugin)
 		'metaslider', // Meta Slider (plugin)
@@ -59,7 +57,9 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'gawd_analytics', // Google Analytics WD (plugin)
 		'yst_ga_dashboard', // Google Analytics by MonsterInsights (plugin)
 		'analytify-dashboard', // Analytify (plugin)
-		'separator-last', // Last separator
+		'envato-wordpress-toolkit', // Envato Toolkit (plugin)
+		'envato-market', // Envato Market (plugin)
+		'separator-last', // Separator (last)
 		'sucuriscan', // Sucuri Security (plugin)
 		'Wordfence', // Wordfence (plugin)
 	);
@@ -67,3 +67,19 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 }
 add_filter( 'custom_menu_order', 'joe_uah_custom_wp_admin_menu_order' );
 add_filter( 'menu_order', 'joe_uah_custom_wp_admin_menu_order' );
+
+/**
+ * Remove top level menu items.
+ * Use the Admin Menu Slugs dashboard widget to find menu slugs to removing.
+ *
+ * @link https://markwilkinson.me/2014/11/altering-wordpress-admin-menus/
+ * @since 1.3.9
+ */
+function joe_uah_remove_top_level_menu_items() {
+
+	remove_menu_page(
+		'edit-comments.php' // Comments
+	);
+
+}
+add_action( 'admin_menu', 'joe_uah_remove_top_level_menu_items', 999 );

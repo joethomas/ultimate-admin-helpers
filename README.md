@@ -9,10 +9,15 @@ This plugin adds some of my favorite helpers for the WordPress Admin.
 
 ### Admin Menu
 - Rearrange the WordPress Admin menu
+- Remove "Comments," since it's also in the Admin Bar
+
+### Admin Styles
+- Minimal Admin Menu style changes
 
 ### Dashboard
-- Add dashboard widget: Admin Menu Slugs (disabled by default)
-- Add dashboard widget: Available Shortcodes (disabled by default)
+- Add dashboard widget: Admin Menu Slugs
+- Add dashboard widget: Admin Menu > Submenu Slugs
+- Add dashboard widget: Available Shortcodes
 
 ### Widgets
 - Allow shortcodes in text widgets

@@ -1,0 +1,16 @@
+#adminmenu li.wp-menu-separator {
+	margin-top: 6px;
+}
+
+#adminmenu div.separator {
+	height: 5px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#adminmenu li.wp-menu-separator + li.wp-has-current-submenu {
+	margin-top: -6px;
+}
+
+#adminmenu li.wp-has-current-submenu + li.wp-menu-separator {
+	margin-top: 0;
+}
