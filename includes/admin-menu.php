@@ -16,7 +16,8 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'index.php', // Dashboard
 		'duplicator', // Duplicator (plugin)
 		'options-general.php?page=github-updater', // Github Updater (plugin)
-		'uncode-menu', // Uncode (theme)
+		'uncode-menu', // Uncode (theme - before 1.7.0)
+		'uncode-system-status', // Uncode (theme)
 		'avia', // Enfold (theme)
 		'genesis', // Genesis (theme)
 		'wpex-panel', // Total (theme)
@@ -38,6 +39,7 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'edit.php?post_type=testimonials', // Testimonials (plugin)
 		'edit.php?post_type=popup', // Popup Maker (plugin)
 		'upload.php', // Media
+		'edit.php?post_type=uncode_gallery', // Uncode - Galleries (theme)
 		'separator1', // Separator (1st)
 		'themes.php', // Appearance
 		'plugins.php', // Plugins
