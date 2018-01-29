@@ -24,6 +24,7 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'wpshopify', // WP Shopify (plugin)
 		'woocommerce', // WooCommerce (plugin)
 		'edit.php?post_type=product', // WooCommerce Products (plugin)
+		'edit.php?post_type=pms_product', // Product Management System (plugin)
 		'edit.php?post_type=page', // Pages
 		'nestedpages', // Pages (if using the Nested Pages plugin)
 		'edit.php', // Posts
