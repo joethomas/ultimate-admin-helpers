@@ -9,14 +9,13 @@
 
 // Set the admin menu order.
 function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
-
 	if ( ! $menu_ord ) return true;
 
-    return array(
+    	return array(
 		'index.php', // Dashboard
 		'duplicator', // Duplicator (plugin)
 		'options-general.php?page=github-updater', // Github Updater (plugin)
-		'uncode-menu', // Uncode (theme - before 1.7.0)
+		'et_divi_options', // Divi (theme)
 		'uncode-system-status', // Uncode (theme)
 		'avia', // Enfold (theme)
 		'genesis', // Genesis (theme)
@@ -53,8 +52,10 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'revslider', // Slider Revolution (plugin)
 		'layerslider', // LayerSlider (plugin)
 		'metaslider', // Meta Slider (plugin)
+		'rank-math', // Rank Math SEO (plugin)
 		'wpseo_dashboard', // Yoast SEO (plugin)
 		'redirect-updates', // Quick Page/Post Redirect Plugin (plugin)
+		'w3tc_dashboard', // W3 Total Cache (plugin)
 		'wpfastestcacheoptions', // WP Fastest Cache (plugin)
 		'gadash_settings', // Google Analytics Dashboard for WP (GADWP) (plugin)
 		'gawd_subscribe', // Google Analytics WD (plugin)
@@ -66,6 +67,7 @@ function joe_uah_custom_wp_admin_menu_order( $menu_ord ) {
 		'separator-last', // Separator (last)
 		'sucuriscan', // Sucuri Security (plugin)
 		'Wordfence', // Wordfence (plugin)
+		'mb_email_configuration' // WP Mail Bank (plugin)
 	);
 
 }
@@ -82,7 +84,7 @@ add_filter( 'menu_order', 'joe_uah_custom_wp_admin_menu_order' );
 function joe_uah_remove_top_level_menu_items() {
 
 	remove_menu_page(
-		'edit-comments.php' // Comments
+		//'edit-comments.php' // Comments
 	);
 
 }
