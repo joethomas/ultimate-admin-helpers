@@ -3,16 +3,13 @@
 	Plugin Name: Ultimate Admin Helpers
 	Description: This plugin adds some very useful helpers for the WordPress Admin area.
 	Plugin URI: https://github.com/joethomas/ultimate-admin-helpers
-	Version: 1.4.2
+	Version: 1.4.3
 	Author: Joe Thomas
 	Author URI: https://github.com/joethomas
 	License: GNU General Public License v3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: ultimate-admin-helpers
 	Domain Path: /languages/
-
-	GitHub Plugin URI: https://github.com/joethomas/ultimate-admin-helpers
-	GitHub Branch: master
 */
 
 // Prevent direct file access
@@ -54,7 +51,7 @@ add_action( 'plugins_loaded', 'joe_uah_plugins_check' );
 
 require_once( 'includes/admin-bar.php' ); // controls WP Admin bar
 require_once( 'includes/admin-menu.php' ); // controls WP Admin menu
-require_once( 'includes/admin-styles.php' ); // controls WP Admin styles
+//require_once( 'includes/admin-styles.php' ); // controls WP Admin styles
 require_once( 'includes/dashboard-widgets.php' ); // controls Dashboard widgets
 require_once( 'includes/post-edit.php' ); // controls Post Edit screen
 require_once( 'includes/updates.php' ); // controls plugin updates
