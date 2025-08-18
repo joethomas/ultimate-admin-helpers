@@ -3,7 +3,7 @@
 	Plugin Name: Ultimate Admin Helpers
 	Description: This plugin adds some very useful helpers for the WordPress Admin area.
 	Plugin URI: https://github.com/joethomas/ultimate-admin-helpers
-	Version: 1.5.0
+	Version: 1.5.1
 	Author: Joe Thomas
 	Author URI: https://github.com/joethomas
 	Update URI: joethomas/ultimate-admin-helpers
