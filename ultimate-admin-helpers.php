@@ -6,14 +6,13 @@
 	Version: 1.5.1
 	Author: Joe Thomas
 	Author URI: https://github.com/joethomas
-	Update URI: joethomas/ultimate-admin-helpers
 	License: GNU General Public License v3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: ultimate-admin-helpers
 	Domain Path: /languages/
 
 	GitHub Plugin URI: joethomas/ultimate-admin-helpers
-	GitHub Branch: master
+	Primary Branch: master
 */
 
 // Prevent direct file access
